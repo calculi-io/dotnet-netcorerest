@@ -1,0 +1,7 @@
+.vs/
+.vscode/
+bin/
+coverage.opencover.xml
+obj/
+publish/
+TestResults/

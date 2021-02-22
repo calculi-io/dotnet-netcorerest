@@ -60,7 +60,7 @@
 							{
 								"name": "Build",
 								"definition": "Build debug files",
-								"command": "dotnet build server",
+								"command": "dotnet build server\n\necho \"Building Release\"\ndotnet build server --configuration Release\n\necho \"Copy Release artifact to be packaged\"\ncp server\\bin\\Release\\netcoreapp2.2\\server.dll .",
 								"properties": null
 							},
 							{

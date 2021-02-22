@@ -1,6 +1,6 @@
 {
 	"metadata": {
-		"version": 1
+		"version": 2
 	},
 	"application": {
 		"name": "netcorerest",
@@ -60,13 +60,13 @@
 							{
 								"name": "Build",
 								"definition": "Build debug files",
-								"command": "msbuild /t:Rebuild /p:Configuration=Debug",
+								"command": "dotnet build server",
 								"properties": null
 							},
 							{
 								"name": "Unit test and Coverage",
 								"definition": "Unit test and coverage",
-								"command": ".\\packages\\OpenCover.4.6.519\\tools\\OpenCover.Console.exe -register:Path64 -filter:+[((application.name))]*-[((application.name))]((application.name)).Tests.* -target:.\\packages\\Nunit.ConsoleRunner.3.9.0\\tools\\nunit3-console.exe \"-targetargs:((application.name))/bin/((application.name)).dll --result:test.xml;format=nunit3\" \"-output:coverage.xml\" -searchdirs:((application.name))/obj/Debug",
+								"command": "dotnet test test --logger \"trx;LogFileName=TestResults.trx\" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover",
 								"properties": null
 							}
 						],
